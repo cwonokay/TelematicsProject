@@ -1,16 +1,10 @@
 import java.util.Scanner;
 
 public class Main {
-    int VIN;
-    double odometerMilesTraveled;
-    double consumptionGallonsOfGasConsumed;
-    double odometerLastOilChange;
-    double engineSizeInLiters;
+
 
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
-        VehicleInfo vehicleInfo = new VehicleInfo();
-        TelematicsService telematicsService = new TelematicsService();
 
         System.out.println("Please enter Vehicle Identification Number");
         String vininput = scanner.nextLine();
@@ -33,9 +27,17 @@ public class Main {
         String engineSizeInLitersinput = scanner.nextLine();
         double engineSizeInLiters = Double.parseDouble(engineSizeInLitersinput);
 
-    System.out.println(VIN);
+        VehicleInfo newvehicleInfo = new VehicleInfo();
+        newvehicleInfo.setOdometerMilesTraveled(odometerMilesTraveled);
+        newvehicleInfo.setConsumptionGallonsOfGasConsumed(consumptionGallonsOfGasConsumed );
+        newvehicleInfo.setEngineSizeInLiters(odometerLastOilChange);
+        newvehicleInfo.setOdometerLastOilChange(engineSizeInLiters);
+        newvehicleInfo.setVIN(VIN);
 
-        telematicsService.report(vehicleInfo);
+
+        TelematicsService telematicsService = new TelematicsService();
+
+        telematicsService.report(newvehicleInfo);
     }
 
 
