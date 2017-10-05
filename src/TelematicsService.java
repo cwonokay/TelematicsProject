@@ -33,6 +33,7 @@ public class TelematicsService {
         for (File f : newfile.listFiles()) {
             if (f.getName().endsWith(".json")) {
 
+
 //
                 try {
 
@@ -58,6 +59,9 @@ public class TelematicsService {
                 avgOdometerLastOilChange += vinInfo.getOdometerLastOilChange();
                 avgEngineSizeInLiters += vinInfo.getEngineSizeInLiters();
 
+                htmlVehicleInfo += "        <tr>\n" +
+                        "            <td align=\"center\">" + vinInfo.getVIN() + "</td><td align=\"center\">"+ vinInfo.getOdometerMilesTraveled() +"</td><td align=\"center\">"+ vinInfo.getConsumptionGallonsOfGasConsumed() +"</td><td align=\"center\">"+ vinInfo.getOdometerLastOilChange() +"</td align=\"center\"><td align=\"center\">"+ vinInfo.getEngineSizeInLiters() +"</td>\n" +
+                        "        </tr>\n";
             }
             avgOdometerMilesTraveled = avgOdometerMilesTraveled / numOfCars;
             avgConsumptionGallonsOfGasConsumed = avgConsumptionGallonsOfGasConsumed / numOfCars;
@@ -66,9 +70,7 @@ public class TelematicsService {
 
 
 
-            htmlVehicleInfo += "        <tr>\n" +
-                    "            <td align=\"center\">" + vehicleInfo.getVIN() + "</td><td align=\"center\">"+ vehicleInfo.getOdometerMilesTraveled() +"</td><td align=\"center\">"+ vehicleInfo.getConsumptionGallonsOfGasConsumed() +"</td><td align=\"center\">"+ vehicleInfo.getOdometerLastOilChange() +"</td align=\"center\"><td align=\"center\">"+ vehicleInfo.getEngineSizeInLiters() +"</td>\n" +
-                    "        </tr>\n";
+
 
         File files = new File(".json");
 
@@ -97,9 +99,6 @@ public class TelematicsService {
                         "            <th>VIN</th><th>Odometer (miles)</th><th>Consumption (gallons)</th><th>Last Oil Change</th><th>Engine Size (liters)</th>\n" +
                         "        </tr>\n" +
                         htmlVehicleInfo +
-                        "        <tr>\n" +
-                        "            <td align=\"center\">45435</td><td align=\"center\">123</td><td align=\"center\">234</td><td align=\"center\">345</td align=\"center\"><td align=\"center\">4.5</td>\n" +
-                        "        </tr>\n" +
                         "    </table>\n" +
                         "  </body>\n" +
                         "</html>\n";
