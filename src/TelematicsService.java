@@ -8,7 +8,10 @@ import java.util.ArrayList;
 
 public class TelematicsService {
 
+
    static void report(VehicleInfo vehicleInfo) {
+
+
 
 //        JSON
        try {
@@ -79,13 +82,13 @@ public class TelematicsService {
                 String dashboard = "<html>\n" +
                         "  <title>Vehicle Telematics Dashboard</title>\n" +
                         "  <body>\n" +
-                        "    <h1 align=\"center\">Averages for # vehicles</h1>\n" +
+                        "    <h1 align=\"center\">Averages for " + numOfCars + " vehicles</h1>\n" +
                         "    <table align=\"center\">\n" +
                         "        <tr>\n" +
                         "            <th>Odometer (miles) |</th><th>Consumption (gallons) |</th><th>Last Oil Change |</th><th>Engine Size (liters)</th>\n" +
                         "        </tr>\n" +
                         "        <tr>\n" +
-                        "            <td align=\"center\">#</td><td align=\"center\">#</td><td align=\"center\">#</td align=\"center\"><td align=\"center\">#</td>\n" +
+                        "            <td align=\"center\">" + Math.round(avgOdometerMilesTraveled) + "</td><td align=\"center\">" + Math.round(avgConsumptionGallonsOfGasConsumed)+ "</td><td align=\"center\">"+ Math.round(avgOdometerLastOilChange) + "</td align=\"center\"><td align=\"center\">"+ Math.round(avgEngineSizeInLiters) +"</td>\n" +
                         "        </tr>\n" +
                         "    </table>\n" +
                         "    <h1 align=\"center\">History</h1>\n" +
@@ -93,9 +96,7 @@ public class TelematicsService {
                         "        <tr>\n" +
                         "            <th>VIN</th><th>Odometer (miles)</th><th>Consumption (gallons)</th><th>Last Oil Change</th><th>Engine Size (liters)</th>\n" +
                         "        </tr>\n" +
-                        "        <tr>\n" +
-                        "            <td align=\"center\">#</td><td align=\"center\">#</td><td align=\"center\">#</td><td align=\"center\">#</td align=\"center\"><td align=\"center\">#</td>\n" +
-                        "        </tr>\n" +
+                        htmlVehicleInfo +
                         "        <tr>\n" +
                         "            <td align=\"center\">45435</td><td align=\"center\">123</td><td align=\"center\">234</td><td align=\"center\">345</td align=\"center\"><td align=\"center\">4.5</td>\n" +
                         "        </tr>\n" +
